@@ -1,0 +1,43 @@
+{
+  "id": "small-business-review",
+  "title": "Small business review",
+  "description": "A four-stage example playbook for a short engagement with an owner-run business. Replace it with your own method.",
+  "stages": [
+    {
+      "id": "intake",
+      "label": "Intake",
+      "required": ["intake.goal", "intake.decision_owner", "intake.constraint"],
+      "approval": "stage_confirmation"
+    },
+    {
+      "id": "diagnosis",
+      "label": "Diagnosis",
+      "required": ["diagnosis.problem", "diagnosis.impact"],
+      "baselineOneOf": ["diagnosis.baseline", "diagnosis.baseline_unmeasured"],
+      "competingHypotheses": { "kind": "cause", "min": 2, "waiverConcept": "diagnosis.single_cause_reason" },
+      "marketEvidence": { "maxAgeDays": 730 },
+      "approval": "stage_confirmation"
+    },
+    {
+      "id": "options",
+      "label": "Options",
+      "required": ["options.capability_needed", "options.who_decides", "options.fallback"],
+      "artifacts": [{ "type": "options_comparison", "minClaims": 1 }],
+      "selection": { "artifactType": "options_comparison", "decisionKind": "option_selection" }
+    },
+    {
+      "id": "decision",
+      "label": "Decision",
+      "required": ["decision.next_step", "decision.success_measure", "decision.review_date"],
+      "approval": "stage_confirmation"
+    }
+  ],
+  "catalogue": [
+    { "id": "measure_first", "type": "measure", "level": 0, "label": "Measure the problem before changing anything", "capabilities": ["measurement", "baseline"], "prerequisites": {}, "bestWhen": { "evidenceStrength": ["insufficient", "contested"] } },
+    { "id": "fix_the_process", "type": "process", "level": 1, "label": "Simplify and write down the process", "capabilities": ["workflow", "handoff", "standardisation"], "prerequisites": {}, "bestWhen": { "processStable": false } },
+    { "id": "use_existing_tools", "type": "software", "level": 1, "label": "Configure tools the business already has", "capabilities": ["workflow", "integration", "record_keeping"], "prerequisites": { "processStable": true, "integrationReadiness": true } },
+    { "id": "bring_in_help", "type": "people", "level": 1, "label": "Outsource or hire for the gap", "capabilities": ["capacity", "specialist_skill"], "prerequisites": { "authorityDefined": true } },
+    { "id": "assistant_with_review", "type": "assistant", "level": 2, "label": "Software assistant whose drafts a person approves", "capabilities": ["drafting", "classification", "recommendation"], "prerequisites": { "dataReady": true, "authorityDefined": true, "humanReview": true, "fallbackDefined": true, "minEvidence": "developing" } },
+    { "id": "automated_workflow", "type": "automation", "level": 3, "label": "Automated multi-step workflow with monitoring", "capabilities": ["multi_step", "routing", "monitoring"], "prerequisites": { "dataReady": true, "processStable": true, "integrationReadiness": true, "authorityDefined": true, "humanReview": true, "fallbackDefined": true, "minEvidence": "supported" } }
+  ]
+}
