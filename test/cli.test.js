@@ -8,8 +8,8 @@ const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 
 test('CLI records an engagement and passes the intake gate only after approval', () => {
-  const env = { ...process.env, CONSULTANTOS_HOME: fs.mkdtempSync(path.join(os.tmpdir(), 'consultant-os-')) };
-  const cli = (...args) => execFileSync(process.execPath, [path.join(__dirname, '..', 'bin', 'consultantos.js'), ...args], { env, encoding: 'utf8' }).trim();
+  const env = { ...process.env, CONSULTINGOS_HOME: fs.mkdtempSync(path.join(os.tmpdir(), 'consulting-os-')) };
+  const cli = (...args) => execFileSync(process.execPath, [path.join(__dirname, '..', 'bin', 'consultingos.js'), ...args], { env, encoding: 'utf8' }).trim();
   assert.match(cli('new', 'acme'), /intake → diagnosis → options → decision/);
   const ev = cli('evidence', 'acme', '--type', 'client', '--source', 'call-1', '--excerpt', 'Owner wants faster quotes.', '--reliability', 'high');
   for (const concept of ['intake.goal', 'intake.decision_owner', 'intake.constraint']) cli('fact', 'acme', concept, `value ${concept}`, '--evidence', ev);

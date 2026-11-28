@@ -1,4 +1,4 @@
-# BIXSO ConsultantOS
+# BIXSO Consulting OS
 
 An evidence-first record of a consulting engagement, for independent consultants and small advisory teams. It keeps what the client confirmed, what you suspect and what the evidence says in separate places, and it will not let a stage close on a guess.
 
@@ -19,15 +19,15 @@ npm run demo
 
 The demo follows a fictional two-person bakery whose catering quotes are slow, through intake, diagnosis and options.
 
-Run your own engagement from the command line. Data is saved in `.consultant-os/<name>.json` in the current folder.
+Run your own engagement from the command line. Data is saved in `.consulting-os/<name>.json` in the current folder.
 
 ```sh
-node bin/consultantos.js new acme
-node bin/consultantos.js evidence acme --type client --source call-1 --excerpt "Owner wants quotes out within two days." --reliability high
-node bin/consultantos.js fact acme intake.goal "Quotes within two working days" --evidence <evidence-id>
-node bin/consultantos.js gate acme intake
-node bin/consultantos.js options acme --need standardisation,drafting --yes processStable
-node bin/consultantos.js help
+node bin/consultingos.js new acme
+node bin/consultingos.js evidence acme --type client --source call-1 --excerpt "Owner wants quotes out within two days." --reliability high
+node bin/consultingos.js fact acme intake.goal "Quotes within two working days" --evidence <evidence-id>
+node bin/consultingos.js gate acme intake
+node bin/consultingos.js options acme --need standardisation,drafting --yes processStable
+node bin/consultingos.js help
 ```
 
 ## Bring your own method
@@ -53,7 +53,7 @@ Every function returns a new graph and leaves the previous one unchanged.
 
 ## Help shape it
 
-Open an [issue](https://github.com/THANH-DAO-PTY-LTD/BIXSO-ConsultantOS/issues) with a gate rule your method needs or a check that blocked you wrongly. See [CONTRIBUTING](CONTRIBUTING.md) and the [security policy](SECURITY.md).
+Open an [issue](https://github.com/THANH-DAO-PTY-LTD/BIXSO-Consulting-OS/issues) with a gate rule your method needs or a check that blocked you wrongly. See [CONTRIBUTING](CONTRIBUTING.md) and the [security policy](SECURITY.md).
 
 ## License
 

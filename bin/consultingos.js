@@ -5,23 +5,23 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('../src');
 
-const HELP = `ConsultantOS — an evidence-first record of a consulting engagement
+const HELP = `Consulting OS — an evidence-first record of a consulting engagement
 
 Usage
-  consultantos new <name> [--playbook file.json]
-  consultantos evidence <name> --type client|document|system|market|expert --source ID --excerpt TEXT
+  consultingos new <name> [--playbook file.json]
+  consultingos evidence <name> --type client|document|system|market|expert --source ID --excerpt TEXT
                         [--reliability low|medium|high] [--publisher P --jurisdiction J --published DATE]
-  consultantos fact <name> <concept> <value> --evidence ID[,ID] [--stage S] [--supersedes FACT_ID --reason TEXT]
-  consultantos hypothesis <name> <concept> <value> [--kind K] [--stage S] [--supports IDs] [--contradicts IDs]
-  consultantos ask <name> <concept> <question> --stage S --impact TEXT
-  consultantos answered <name> <concept>
-  consultantos gate <name> <stage>
-  consultantos options <name> --need cap[,cap] [--yes dataReady,humanReview,...] [--strength developing]
+  consultingos fact <name> <concept> <value> --evidence ID[,ID] [--stage S] [--supersedes FACT_ID --reason TEXT]
+  consultingos hypothesis <name> <concept> <value> [--kind K] [--stage S] [--supports IDs] [--contradicts IDs]
+  consultingos ask <name> <concept> <question> --stage S --impact TEXT
+  consultingos answered <name> <concept>
+  consultingos gate <name> <stage>
+  consultingos options <name> --need cap[,cap] [--yes dataReady,humanReview,...] [--strength developing]
                        [--save --stage S --claims FACT_ID[,FACT_ID]]
-  consultantos approve <name> <stage> <kind> <choice> --evidence ID[,ID]
-  consultantos show <name>
+  consultingos approve <name> <stage> <kind> <choice> --evidence ID[,ID]
+  consultingos show <name>
 
-Engagements are saved in .consultant-os/<name>.json (or the folder in CONSULTANTOS_HOME).
+Engagements are saved in .consulting-os/<name>.json (or the folder in CONSULTINGOS_HOME).
 Use fictional records.`;
 
 function parse(argv) {
@@ -38,7 +38,7 @@ function parse(argv) {
 }
 
 const list = (value) => (typeof value === 'string' ? value.split(',').map((v) => v.trim()).filter(Boolean) : []);
-const home = () => process.env.CONSULTANTOS_HOME || path.join(process.cwd(), '.consultant-os');
+const home = () => process.env.CONSULTINGOS_HOME || path.join(process.cwd(), '.consulting-os');
 const fileFor = (name) => {
   if (!/^[a-zA-Z0-9_.-]{1,80}$/.test(name || '')) throw new Error('Engagement names use letters, numbers, dot, dash or underscore');
   return path.join(home(), `${name}.json`);
@@ -46,7 +46,7 @@ const fileFor = (name) => {
 
 function load(name) {
   const file = fileFor(name);
-  if (!fs.existsSync(file)) throw new Error(`No engagement named ${name}. Run consultantos new ${name}`);
+  if (!fs.existsSync(file)) throw new Error(`No engagement named ${name}. Run consultingos new ${name}`);
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
   return { ...data, playbook: os.loadPlaybook(data.playbookFile) };
 }
@@ -126,7 +126,7 @@ function main() {
     console.log(`  ${Object.keys(graph.evidence).length} evidence · ${Object.keys(graph.decisions).length} decisions · ${Object.keys(graph.artifacts).length} artifacts`);
     return;
   } else {
-    throw new Error(`Unknown command ${command}. Run consultantos help`);
+    throw new Error(`Unknown command ${command}. Run consultingos help`);
   }
   save(name, { ...data, graph });
 }

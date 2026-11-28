@@ -1,12 +1,12 @@
 {
-  "name": "bixso-consultant-os",
+  "name": "bixso-consulting-os",
   "version": "0.1.0",
   "description": "An evidence-first engine for consulting engagements: facts, hypotheses, stage gates and option matching driven by your own playbook.",
   "private": true,
   "license": "MIT",
   "type": "commonjs",
   "main": "src/index.js",
-  "bin": { "consultantos": "bin/consultantos.js" },
+  "bin": { "consultingos": "bin/consultingos.js" },
   "engines": { "node": ">=22" },
   "scripts": {
     "test": "node --test",
