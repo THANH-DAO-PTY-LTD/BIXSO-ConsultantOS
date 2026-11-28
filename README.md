@@ -15,6 +15,14 @@ An evidence-first record of a consulting engagement, for independent consultants
 - **Builders:** developers of CRM, client-portal or AI-assistant tools for consultants can use the evidence ledger, stage gates and question planner as the rules layer under their interface or AI.
 - **Consultants:** tell us what your first stage gate would check.
 
+<!-- bixso-os-origin:start -->
+## Where this comes from
+
+These rules come from **[BIXSO Consulting](https://bixso.ai/?utm_source=github&utm_medium=readme&utm_campaign=bixso-os&utm_content=consulting-os)**, BIXSO's business consulting service that BIXSO builds and runs. This repository is the open concept and a lite reference implementation of its rules: plain functions, local files and no accounts. The product adds what a real service needs, such as accounts, hosting and support, and it is still being built.
+
+Ideas and changes made here are reviewed for BIXSO Consulting as well. See this project's [roadmap](docs/ROADMAP.md) and [how BIXSO OS is run](https://github.com/THANH-DAO-PTY-LTD/.github/blob/main/GOVERNANCE.md).
+<!-- bixso-os-origin:end -->
+
 ## Try it
 
 Use Node.js 22 or later. There are no dependencies to install.
