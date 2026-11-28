@@ -1,5 +1,7 @@
 # BIXSO Consulting OS
 
+![BIXSO Consulting OS: real demo output of BIXSO Consulting OS with fictional data](docs/media/bixso-consulting-os.png)
+
 An evidence-first record of a consulting engagement, for independent consultants and small advisory teams. It keeps what the client confirmed, what you suspect and what the evidence says in separate places, and it will not let a stage close on a guess.
 
 - **Facts need evidence.** Every client-confirmed fact cites at least one piece of evidence. Changing a fact needs an explicit supersession and a reason.
