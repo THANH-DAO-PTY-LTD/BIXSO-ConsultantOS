@@ -10,3 +10,9 @@ Use a GitHub issue for feedback or a bug. Include a fictional engagement, the co
 Changes that let a hypothesis advance a stage, record a fact without evidence or skip a human approval need an issue first. Playbooks for specific industries are welcome under `playbooks/`.
 
 Submit only material you have the right to contribute. Contributions to this repository are provided under its [MIT license](LICENSE).
+
+## Sign off your commits
+
+Every commit in a pull request must be signed off. Use `git commit -s`, which adds a line like `Signed-off-by: Your Name <you@example.com>`. By signing off, you certify the [Developer Certificate of Origin 1.1](https://developercertificate.org): you wrote the change, or otherwise have the right to submit it under this project's license. A check on each pull request looks for the sign-off.
+
+Please also follow the [code of conduct](CODE_OF_CONDUCT.md).
