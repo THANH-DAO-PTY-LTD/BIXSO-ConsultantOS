@@ -10,6 +10,11 @@ An evidence-first record of a consulting engagement, for independent consultants
 - **Stage gates you define.** A playbook lists each stage's required concepts, artifacts, competing explanations, baselines, market-evidence freshness and the human approval needed to move on.
 - **Lightest option first.** The option matcher checks prerequisites such as dependable data, a named decision owner, human review and a fallback, and prefers the lighter option when two would solve the same need. A person still decides.
 
+## Who it's for
+
+- **Builders:** developers of CRM, client-portal or AI-assistant tools for consultants can use the evidence ledger, stage gates and question planner as the rules layer under their interface or AI.
+- **Consultants:** tell us what your first stage gate would check.
+
 ## Try it
 
 Use Node.js 22 or later. There are no dependencies to install.
